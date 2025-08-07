@@ -411,7 +411,7 @@ find_openwrt() {
             esac
 
             # Complete filename
-            [[ "${source_codename:0:1}" != "_" ]] && source_codename="_${source_codename}"
+            #[[ "${source_codename:0:1}" != "_" ]] && source_codename="_${source_codename}"
         }
         echo -e "${INFO} The source_codename: [ ${source_codename} ], OpenWrt source code repository: [ ${OPENWRT_SOURCECODE} ]"
     }
@@ -713,7 +713,8 @@ make_image() {
 
     # Set OpenWrt filename
     [[ -d "${out_path}" ]] || mkdir -p ${out_path}
-    openwrt_filename="openwrt${source_codename}_${PLATFORM}_${board}_k${kernel}_$(date +"%Y.%m.%d").img"
+    #openwrt_filename="openwrt${source_codename}_${PLATFORM}_${board}_k${kernel}_$(date +"%Y.%m.%d").img"
+    openwrt_filename="${source_codename}_${PLATFORM}_${board}_k${kernel}_$(date +"%Y.%m.%d").img"
     build_image_file="${out_path}/${openwrt_filename}"
     rm -f ${build_image_file}
 
@@ -1124,7 +1125,7 @@ EOF
 
     # Add firmware version information to the terminal page
     [[ -n "${builder_name}" ]] && builder_display="Builder Name: ${builder_name} | " || builder_display=""
-    [[ -f "etc/banner" ]] && {
+    [[ -f "etc/" ]] && {
         echo " Install OpenWrt: System → Amlogic Service → Install OpenWrt" >>etc/banner
         echo " Update  OpenWrt: System → Amlogic Service → Online  Update" >>etc/banner
         echo " Board: ${board} | OpenWrt Kernel: ${kernel_name}" >>etc/banner
