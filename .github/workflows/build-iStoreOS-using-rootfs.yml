@@ -276,7 +276,7 @@ jobs:
         run: |
           [[ -d "openwrt" ]] || mkdir openwrt
           cd openwrt
-          download_rootfs="https://github.com/lavey404/Actions-iStoreOS-armsr-24.10/releases/download/$(date +"%Y.%m.%d")-armv8/istoreos-armsr-armv8-generic-rootfs.tar.gz"
+          download_rootfs="https://github.com/lavey404/Actions-iStoreOS-armsr-24.10/releases/download/${(date +"%Y.%m.%d")}-armv8/istoreos-armsr-armv8-generic-rootfs.tar.gz"
           curl -fsSOL ${download_rootfs}
           [[ "${?}" -eq "0" ]] || error_msg "Download failed: [ ${download_rootfs} ]"
           [[ -d "output" ]] || mkdir output
