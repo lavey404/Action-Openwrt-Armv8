@@ -407,11 +407,12 @@ find_openwrt() {
             official) OPENWRT_SOURCECODE="github.com/openwrt/openwrt" ;;
             lede) OPENWRT_SOURCECODE="github.com/coolsnowwolf/lede" ;;
             immortalwrt) OPENWRT_SOURCECODE="github.com/immortalwrt/immortalwrt" ;;
+            istoreos) OPENWRT_SOURCECODE="github.com/istoreos/istoreos" ;;
             *) OPENWRT_SOURCECODE="unknown" ;;
             esac
 
             # Complete filename
-            #[[ "${source_codename:0:1}" != "_" ]] && source_codename="_${source_codename}"
+            [[ "${source_codename:0:1}" != "_" ]] && source_codename="_${source_codename}"
         }
         echo -e "${INFO} The source_codename: [ ${source_codename} ], OpenWrt source code repository: [ ${OPENWRT_SOURCECODE} ]"
     }
