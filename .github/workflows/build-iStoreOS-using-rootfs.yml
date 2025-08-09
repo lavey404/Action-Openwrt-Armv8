@@ -288,7 +288,8 @@ jobs:
           for file in *; do [[ ! -d "${file}" ]] && sha256sum "${file}" >"${file}.sha"; done
           
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
-          ln -sf /builder/openwrt /home/runner/work/_actions/ophub/amlogic-s9xxx-openwrt/main/openwrt
+          #ln -sf /builder/openwrt /home/runner/work/_actions/ophub/amlogic-s9xxx-openwrt/main/openwrt
+          ln -sf /builder/openwrt /home/runner/work/_actions/lavey404/Action-Openwrt-Armv8/main/openwrt
           
           df -hT ${PWD}
           echo "build_tag=iStoreOS_24.10_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
